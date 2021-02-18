@@ -30,11 +30,10 @@ public class UserController {
 	}
 	
 	@PostMapping("/loginUser")
-	public String loginUser(String userid, String userpw, HttpServletRequest req, RedirectAttributes rttr) throws Exception{
+	public String loginUser(String userid, String userpw, HttpSession session, RedirectAttributes rttr) throws Exception{
 
 		System.out.println("login");
 
-		HttpSession session=req.getSession();
 		session.setMaxInactiveInterval(30*60);
 		User login=userService.loginUser(userid, userpw);
 		
@@ -81,7 +80,7 @@ public class UserController {
 		System.out.println(user);
 		int result = userService.addUser(user);
 		if (result == 1)
-			return "redirect:/userList";
+			return "redirect:/loginForm";
 		else
 			return "redirect:/addUserForm";
 	}

@@ -16,11 +16,15 @@
 <title>add Song Form</title>
 </head>
 <body>
+
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
 
-	<form action="addSong" method="post" >
+
+	<form action="addSong" method="post" style="margin-top:100px;">	<!--**** 임시로 css 추가한거 충돌나면 지우기 *****-->
+		<input type="hidden" name="page" value="1">
+
 		<table border="1px solid black">
 			<tr>
 				<td>제목 :</td>

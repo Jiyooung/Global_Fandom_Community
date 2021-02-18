@@ -92,6 +92,7 @@ form {
 					</div>
 				</div>
 
+
 			</c:when>
 			<c:when test="${empty ucode}">
 				<div class="container">
@@ -113,6 +114,8 @@ form {
 							</table>
 						</div>
 					</div>
+
+
 				</div>
 			</c:when>
 			<c:otherwise>
@@ -167,8 +170,11 @@ form {
 						</div>
 					</div>
 				</div>
+
 			</c:otherwise>
 		</c:choose>
+
+			
 	</div>
 
 	<br>
@@ -230,7 +236,9 @@ form {
 
 			</c:otherwise>
 		</c:choose>
+
 	</div>
+
 
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 
