@@ -71,6 +71,7 @@ table, th, tr, td, h1 {
 			
 			</c:otherwise>
 		</c:choose>
+		<div id="fmargin"></div>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 
 </body>

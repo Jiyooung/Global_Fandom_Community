@@ -42,7 +42,7 @@ public class SongController {
 			model.addAttribute("songCnt", songCnt);
 			
 			String msg = "노래 추가 완료";
-			model.addAttribute("msg", msg);
+			model.addAttribute("msgAdd", msg);
 			return "song/songList";
 //			return "redirect:/songList?page=1";		//************ 이 부분 잘되는지 확인 ************//
 		}

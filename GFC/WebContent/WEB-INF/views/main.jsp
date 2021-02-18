@@ -138,7 +138,7 @@ table, th, tr, td, h1 {
 
   </main>
 
-
+	<div id="fmargin"></div>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 </body>
 </html>
