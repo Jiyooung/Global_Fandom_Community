@@ -45,21 +45,22 @@ body{
 			        	<c:when test="${not empty ucode}">
 			    			<c:choose>
 								<c:when test="${user.userid eq 'admin'}">
-									<li class="nav-item dropdown">
-								    	<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">K-Map</a>
-								    	<div class="dropdown-menu">
-								    		<a class="dropdown-item" href="adminConfirmLocation">K-Map Confirm </a>
-								    		<a class="dropdown-item" href="addLocationForm">K-Spot Add</a>
-								    		<a class="dropdown-item" href="locationList">K-Spot List </a>
-								    		<a class="dropdown-item" href="map">K-Map</a>
-								    	</div>
-								    </li>
+									
 									<li class="nav-item dropdown">
 								    	<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Song</a>
 								    	<div class="dropdown-menu">
 								    		<a class="dropdown-item" href="adminSongList?page=1">SongList for Admin</a>
 								    		<a class="dropdown-item" href="addSongForm">Song Add</a>
 								    		<a class="dropdown-item" href="songMain?ucode=${ucode}&page=1">Main</a>
+								    	</div>
+								    </li>
+								    <li class="nav-item dropdown">
+								    	<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">K-Map</a>
+								    	<div class="dropdown-menu">
+								    		<a class="dropdown-item" href="adminConfirmLocation">K-Map Confirm </a>
+								    		<a class="dropdown-item" href="addLocationForm">K-Spot Add</a>
+								    		<a class="dropdown-item" href="locationList">K-Spot List </a>
+								    		<a class="dropdown-item" href="map">K-Map</a>
 								    	</div>
 								    </li>
 								    <li class="nav-item active">
@@ -77,8 +78,8 @@ body{
 			          	</c:when>
 			          	<c:otherwise>
 			          			<!-- 로그인 안했을 때 -->
-			          		<li class="nav-item active"><a class="nav-link" href="map">K-Map</a></li>
 			          		<li class="nav-item active"><a class="nav-link" href="songMain?ucode=-1&page=1">Songs</a></li>
+			          		<li class="nav-item active"><a class="nav-link" href="map">K-Map</a></li>
 			          	</c:otherwise>
 			        </c:choose>
 				
