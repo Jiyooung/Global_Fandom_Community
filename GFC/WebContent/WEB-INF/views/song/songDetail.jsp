@@ -9,7 +9,7 @@
 <head>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script>
+<script>
 var $j351 = jQuery.noConflict();
 </script>
 
@@ -30,7 +30,8 @@ var $j351 = jQuery.noConflict();
 	$j351(function() {
 		
 		let scode1 = "${song.scode}";
-		let ucode1 = '<%=session.getAttribute("ucode")%>';
+		let ucode1 = '<%=session.getAttribute("ucode")%>
+	';
 		console.log(ucode1);
 		getCommentList(scode1);
 		$j351('#clear').click(function() {
@@ -76,7 +77,8 @@ var $j351 = jQuery.noConflict();
 		console.log($j351.ajax.url);
 	}
 	function getCommentList(scode1) {
-		$j351.ajax({
+		$j351
+				.ajax({
 					type : 'GET',
 					url : "${pageContext.request.contextPath}/song/songDetail/commentList",
 					dataType : "json",
@@ -92,14 +94,18 @@ var $j351 = jQuery.noConflict();
 								let ccode = data[i].ccode;
 								console.log(ccode);
 								html += "<div class='table'><div><div><strong><span id='uname'>"
-										+ data[i].user.uname + "</strong>&nbsp;&nbsp;&nbsp;</span><span>" 
-										+ data[i].cdate+ "<div></span>";
+										+ data[i].user.uname
+										+ "</strong>&nbsp;&nbsp;&nbsp;</span><span>"
+										+ data[i].cdate + "<div></span>";
 								html += "<span id='ccom"+ ccode +"'>"
-										+ data[i].ccom + "&nbsp;&nbsp;&nbsp;</span>";
-								html += "<span><input type='button' id='translate"+ ccode
-										+ "' value='Translate' onclick='commentTranslate("+ ccode + ")'></span>";
-								html += "&nbsp;&nbsp;&nbsp;<span id='tcomment" + ccode + "'></div>"; 
-								
+										+ data[i].ccom
+										+ "&nbsp;&nbsp;&nbsp;</span>";
+								html += "<span><input type='button' id='translate"
+										+ ccode
+										+ "' value='Translate' onclick='commentTranslate("
+										+ ccode + ")'></span>";
+								html += "&nbsp;&nbsp;&nbsp;<span id='tcomment" + ccode + "'></div>";
+
 								html += "</div><hr>";
 							}
 						} else {
@@ -116,7 +122,8 @@ var $j351 = jQuery.noConflict();
 				});
 	}
 	function commentTranslate(ccode1) {
-		$j351.ajax({
+		$j351
+				.ajax({
 					type : 'GET',
 					url : "${pageContext.request.contextPath}/song/songDetail/commentTranslate",
 					data : {
@@ -159,17 +166,25 @@ var $j351 = jQuery.noConflict();
 				${song.youtubelink}</div>
 
 		</div>
-		<div class="row" >
-			<div class="K lyric col-md-6" id="kl"><br><div id="bottom" style="margin-bottom: 20px;">${song.klyric}</div></div>
-			<div class="F lyric col-md-6" id="fl"><br><div id="bottom" style="margin-bottom: 20px;">${song.flyric}</div></div>
+		<div class="row">
+			<div class="K lyric col-md-6" id="kl">
+				<br>
+				<div id="bottom" style="margin-bottom: 20px;">${song.klyric}</div>
+			</div>
+			<div class="F lyric col-md-6" id="fl">
+				<br>
+				<div id="bottom" style="margin-bottom: 20px;">${song.flyric}</div>
+			</div>
 		</div>
-		
-		<br><br>
-		
+
+		<br> <br>
+
 		<div class="row">
 			<div class="col-md-12">
-			<h4><strong>Comments&nbsp;</strong>(<span id="cCnt"></span>)</h4>
-			<hr>
+				<h4>
+					<strong>Comments&nbsp;</strong>(<span id="cCnt"></span>)
+				</h4>
+				<hr>
 				<c:choose>
 					<c:when test="${not empty user.userid}">
 						<li>${user.uname}</li>
@@ -180,26 +195,26 @@ var $j351 = jQuery.noConflict();
 				</c:choose>
 				<br>
 				<div>
-				<textarea id="Comment" name="Comment"></textarea>
-				<div>
-				<input type="button" id="clear" value="Cancel" /> <input
-					type="button" id="addComment" value="Add" /> <br> <br><br>
+					<textarea id="Comment" name="Comment"></textarea>
+					<div>
+						<input type="button" id="clear" value="Cancel" /> <input
+							type="button" id="addComment" value="Add" /> <br> <br>
+						<br>
+					</div>
+
+
 				</div>
-				
-				
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div id="commentList"></div>
+				</div>
 			</div>
 		</div>
-		<div class="row">
-		<div class="col-md-12">
-					<div id="commentList"></div>
-		</div>
-		</div>
+
 	</div>
 
 
-
-
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
-
 </body>
 </html>

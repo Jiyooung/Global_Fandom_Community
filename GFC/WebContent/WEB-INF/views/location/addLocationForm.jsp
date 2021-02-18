@@ -21,7 +21,6 @@ Dev dev = new Dev();
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="css/list.css">
 <style type="text/css">
 .searchButton,#addbutton,#resetbutton {
 	vertical-align:middle; 
@@ -31,13 +30,18 @@ Dev dev = new Dev();
 	padding: 5px 10px;
 	text-align: center;
 	text-decoration: none;
-	
 	font-size: 16px;
 	margin: 4px 2px;
 	cursor: pointer;
 	border-radius:10px;
-	
 	bottom: 10px;
+}
+input{
+position : static;
+text-align: center;
+}
+table{
+	max-width: 100%;
 }
 
 </style>
@@ -99,7 +103,7 @@ Dev dev = new Dev();
 	
 	<form name="form" action="addLocation" method="post"
 		onsubmit="return err()">
-		<table border="1px solid black">
+		<table>
 			<tr>
 				<td>Nickname :</td>
 				<td><input type="text" name="uname" value="${user.uname}"
@@ -121,9 +125,9 @@ Dev dev = new Dev();
 			</tr>
 			<tr>
 				<td>Address :</td>
-				<td><input type="text" id="laddress" name="laddress"placeholder="Click Search Address" required readonly /> 
+				<td><input type="text" id="laddress" name="laddress" placeholder="Click Search " required readonly /> 
 					<input type="hidden" id="llat" name="llat" /> <input type="hidden"id="llong" name="llong" />
-					<button class="searchButton" onclick="goPopup()">Search Address</button>
+					<button class="searchButton" onclick="goPopup()">Search </button>
 					</td>
 			</tr>
 			<tr>

@@ -47,8 +47,7 @@ background-size: 100%;
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
           <strong class="d-inline-block mb-2 text-primary">월드와이드케이팝</strong>
-          <h3 class="mb-0">☆인기차트★</h3>
-          <div class="mb-1 text-muted">두구두구두구</div>
+          <h3 class="mb-0">Charts</h3>
           <table>
 					<c:forEach var="song" items="${songList}" varStatus="status">
 						<tr>

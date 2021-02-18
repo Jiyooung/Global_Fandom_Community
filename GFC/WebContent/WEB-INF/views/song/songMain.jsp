@@ -59,7 +59,7 @@ form {
 	<div class="container">
 
 		<div class="row">
-			<form action="searchSong" method="post" class="search">
+			<form action="searchSong" method="get" class="search">
 				<select name="condition">
 					<option value="stitle">Title</option>
 					<option value="aname">Artist</option>
@@ -91,85 +91,85 @@ form {
 						</table>
 					</div>
 				</div>
-	</div>
-	</c:when>
-	<c:when test="${empty ucode}">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12" id="grid" style="border: 1px solid #ccc;">
-					<br>
-					<h1>Songs we Recommend</h1>
-					<hr>
-					<table>
-						<c:forEach var="song" items="${mainList}" varStatus="status">
-							<tr class="r"
-								onclick="location.href='/GFC/songDetail?scode=${song.scode}'">
-								<td><img alt="" src="${song.simage}" width="50px"></td>
-								<td>${song.stitle}</td>
-								<td>${song.artist.aname}</td>
-								<td>${song.sviews}</td>
-							</tr>
-						</c:forEach>
-					</table>
-				</div>
-			</div>
-		</div>
-	</c:when>
-	<c:otherwise>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6" id="grid" style="border: 1px solid #ccc;">
-					<br>
-					<h1>Your Bias Songs</h1>
-					<hr>
-					<table>
-						<c:forEach var="song" items="${favoriteList}" varStatus="status">
-							<tr class="r"
-								onclick="location.href='/GFC/songDetail?scode=${song.scode}'">
-								<td>${status.count}</td>
-								<td><img alt="" src="${song.simage}" width="50px"></td>
-								<td>${song.stitle}</td>
-								<td>${song.artist.aname}</td>
-								<td>${song.sviews}</td>
-							</tr>
-						</c:forEach>
-					</table>
-				</div>
-				<div class="col-md-6" id="grid" style="border: 1px solid #ccc;">
-					<br>
-					<h1>Your NO.1 Song</h1>
-					<hr>
-					<table>
-						<tr class="r"
-							onclick="location.href='/GFC/songDetail?scode=${song.scode}'">
-							<td><img src="${favoriteSong.simage}"></td>
-						</tr>
 
-						<tr>
-							<td>Title: ${favoriteSong.stitle}</td>
-						</tr>
-						<tr>
-							<td>Artist : ${favoriteSong.artist.aname}</td>
-						</tr>
-						<tr>
-							<td>Song writer : ${favoriteSong.slyricist}</td>
-						</tr>
-						<tr>
-							<td>Lyricist : ${favoriteSong.swriter}</td>
-						</tr>
-						<tr>
-							<td>Released Date : ${favoriteSong.sdate}</td>
-						</tr>
-						<tr>
-							<td>Views : ${favoriteSong.sviews}</td>
-						</tr>
-					</table>
+			</c:when>
+			<c:when test="${empty ucode}">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12" id="grid" style="border: 1px solid #ccc;">
+							<br>
+							<h1>Songs we Recommend</h1>
+							<hr>
+							<table>
+								<c:forEach var="song" items="${mainList}" varStatus="status">
+									<tr class="r"
+										onclick="location.href='/GFC/songDetail?scode=${song.scode}'">
+										<td><img alt="" src="${song.simage}" width="50px"></td>
+										<td>${song.stitle}</td>
+										<td>${song.artist.aname}</td>
+										<td>${song.sviews}</td>
+									</tr>
+								</c:forEach>
+							</table>
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
+			</c:when>
+			<c:otherwise>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6" id="grid" style="border: 1px solid #ccc;">
+							<br>
+							<h1>Your Bias Songs</h1>
+							<hr>
+							<table>
+								<c:forEach var="song" items="${favoriteList}" varStatus="status">
+									<tr class="r"
+										onclick="location.href='/GFC/songDetail?scode=${song.scode}'">
+										<td>${status.count}</td>
+										<td><img alt="" src="${song.simage}" width="50px"></td>
+										<td>${song.stitle}</td>
+										<td>${song.artist.aname}</td>
+										<td>${song.sviews}</td>
+									</tr>
+								</c:forEach>
+							</table>
+						</div>
+						<div class="col-md-6" id="grid" style="border: 1px solid #ccc;">
+							<br>
+							<h1>Your NO.1 Song</h1>
+							<hr>
+							<table>
+								<tr class="r"
+									onclick="location.href='/GFC/songDetail?scode=${song.scode}'">
+									<td><img src="${favoriteSong.simage}"></td>
+								</tr>
+
+								<tr>
+									<td>Title: ${favoriteSong.stitle}</td>
+								</tr>
+								<tr>
+									<td>Artist : ${favoriteSong.artist.aname}</td>
+								</tr>
+								<tr>
+									<td>Song writer : ${favoriteSong.slyricist}</td>
+								</tr>
+								<tr>
+									<td>Lyricist : ${favoriteSong.swriter}</td>
+								</tr>
+								<tr>
+									<td>Released Date : ${favoriteSong.sdate}</td>
+								</tr>
+								<tr>
+									<td>Views : ${favoriteSong.sviews}</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</c:otherwise>
+		</c:choose>
 	</div>
-	</c:otherwise>
-	</c:choose>
 
 	<br>
 	<div class="container" id="grid" style="border: 1px solid #ccc;">
@@ -207,26 +207,30 @@ form {
 					</div>
 				</div>
 				<c:choose>
-			<c:when test="${not empty ucode}">
-				<%
-				int cnt = ((int)request.getAttribute("songCnt")+3) / 4;
-				for(int i=1;i<=cnt;i++){%>
-					<a href ="songMain?ucode=${ucode}&page=<%=i%>"><%=i%></a>
-				<% }%>
-			</c:when>
-			<c:otherwise>
-					<%
-					int cnt = ((int)request.getAttribute("songCnt")+3) / 4;
-					for(int i=1;i<=cnt;i++){%>
-						<a href ="songMain?ucode=-1&page=<%=i%>"><%=i%></a>
-					<% }%>
+					<c:when test="${not empty ucode}">
+						<%
+						int cnt = ((int) request.getAttribute("songCnt") + 3) / 4;
+						for (int i = 1; i <= cnt; i++) {
+						%>
+						<a href="songMain?ucode=${ucode}&page=<%=i%>"><%=i%></a>
+						<%
+						}
+						%>
+					</c:when>
+					<c:otherwise>
+						<%int cnt = ((int) request.getAttribute("songCnt") + 3) / 4;
+						for (int i = 1; i <= cnt; i++) {
+						%>
+						<a href="songMain?ucode=-1&page=<%=i%>"><%=i%></a>
+						<%
+						}
+						%>
+					</c:otherwise>
+				</c:choose>
+
 			</c:otherwise>
 		</c:choose>
-
-			
 	</div>
-	</c:otherwise>
-	</c:choose>
 
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 
