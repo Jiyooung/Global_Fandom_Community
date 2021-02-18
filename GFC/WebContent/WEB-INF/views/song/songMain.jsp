@@ -239,7 +239,7 @@ form {
 
 	</div>
 
-
+	<div id="fmargin"></div>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 
 </body>
