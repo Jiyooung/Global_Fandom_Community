@@ -49,14 +49,20 @@ table{
 </head>
 
 <script type="text/javascript">
+	$(function() {
+		let search_check = 0;
+	});
+	
 	// opener관련 오류가 발생하는 경우 아래 주석을 해지하고, 사용자의 도메인정보를 입력합니다. ("팝업API 호출 소스"도 동일하게 적용시켜야 합니다.)
 	//document.domain = "abc.go.kr";
 	function goPopup() {
+		search_check = 1;
 		// 주소검색을 수행할 팝업 페이지를 호출합니다.
 		// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
 		// GFC/addLocationForm으로 들어갈 땐 ./ 으로 시작해야 함. location/은 ../으로
 		var pop = window.open("./popup/jusoPopup.jsp", "pop",
 				"width=570,height=420, scrollbars=yes, resizable=yes");
+		
 		
 		// 모바일 웹인 경우, 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://www.juso.go.kr/addrlink/addrMobileLinkUrl.do)를 호출하게 됩니다.
 		//var pop = window.open("/popup/jusoPopup.jsp","pop","scrollbars=yes, resizable=yes"); 
@@ -80,18 +86,10 @@ table{
 	}
 	
 	function err() {
-		if (form.lname.value == "") {
-				alert("Enter Place");
-	    	return false;
+		if (search_check == 0) {	// search 버튼은 안누름
+			alert("Click 'Search' and Input Address.");
+			return false;
 		}
-		if (form.laddress.value == "") {
-			alert("Enter Address");
-    	return false;
-	}
-		if (form.ldesc.value == "") {
-			alert("Enter Explanation");
-    	return false;
-	}
 	return true;
 	}
 </script>
@@ -122,7 +120,7 @@ table{
 			</tr>
 			<tr>
 				<td>Place Name </td>
-				<td><input type="text" name="lname"></td>
+				<td><input type="text" name="lname" required="required"></td>
 			</tr>
 			<tr>
 				<td>Address </td>
@@ -133,7 +131,7 @@ table{
 			</tr>
 			<tr>
 				<td>Explanation </td>
-				<td><input type="text" name="ldesc"></td>
+				<td><input type="text" name="ldesc" required="required"></td>
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="Submit" id="addbutton">
