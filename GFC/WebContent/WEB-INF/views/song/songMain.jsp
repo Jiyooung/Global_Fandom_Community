@@ -118,7 +118,7 @@ form {
 			<c:otherwise>
 				<div class="container">
 					<div class="row">
-						<div class="col-md-6" id="grid" style="border: 1px solid #ccc;padding: 50px;">
+						<div class="col-md-6" id="grid" style="border: 1px solid #ccc;">
 							<br>
 							<h1>Your Bias Songs</h1>
 							<hr>
