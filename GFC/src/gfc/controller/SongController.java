@@ -39,7 +39,7 @@ public class SongController {
 			model.addAttribute("songList", songs);
 			
 			int songCnt = songService.getSongCnt();
-			model.addAttribute("songCnt", songCnt);
+			model.addAttribute("songCnt", (songCnt+3)/4);
 			
 			String msg = "노래 추가 완료";
 			model.addAttribute("msgAdd", msg);
@@ -116,7 +116,7 @@ public class SongController {
 		
 		int songCnt = songService.getSongCnt();
 //		System.out.println(songCnt);
-		model.addAttribute("songCnt", songCnt);
+		model.addAttribute("songCnt", (songCnt+3)/4);
 
 		return "song/songMain";
 	}
