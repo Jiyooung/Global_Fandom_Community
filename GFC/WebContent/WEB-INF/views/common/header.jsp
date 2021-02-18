@@ -40,16 +40,14 @@ body{
 		</button>
 		<div class="collapse navbar-collapse" id="navbarCollapse">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="songList?page=1">누구나노래리스트</a>
-
-				</li>
+				
 				<li class="nav-item active">
 				<c:choose>
         	<c:when test="${not empty ucode}">
-          <a class="nav-link" href="songMain?ucode=${ucode}&page=1">노래메인</a>	<!-- 로그인 되어있을 때-->
+          <a class="nav-link" href="songMain?ucode=${ucode}&page=1">Songs</a>	<!-- 로그인 되어있을 때-->
           	</c:when>
           	<c:otherwise>
-          <a class="nav-link" href="songMain?ucode=-1&page=1">노래메인</a>	<!-- 로그인 안했을 때 -->
+          <a class="nav-link" href="songMain?ucode=-1&page=1">Songs</a>	<!-- 로그인 안했을 때 -->
           </c:otherwise>
         </c:choose>
 
@@ -58,23 +56,22 @@ body{
 				<c:choose>
 					<c:when test="${user.userid eq 'admin'}">
 						<li class="nav-item active"><a class="nav-link"
-							href="addSongForm">노래추가</a></li>
+							href="addSongForm">Add New Song</a></li>
 						<li class="nav-item active"><a class="nav-link"
-							href="adminConfirmLocation">장소컨펌</a></li>
+							href="adminConfirmLocation">K-Map Confirm </a></li>
 						<li class="nav-item active"><a class="nav-link"
 
-							href="adminSongList?page=1">admin노래리스트</a></li>
+							href="adminSongList?page=1">Song List for Admin</a></li>
 
 					</c:when>
 				</c:choose>
-				<li class="nav-item"><a class="nav-link" href="map">지도보기</a></li>
-				<c:choose>
+				<li class="nav-item active"><a class="nav-link" href="map">K-Map</a></li>
+				<%-- <c:choose>
 					<c:when test="${not empty user.userid}">
 						<li class="nav-item"><a class="nav-link"
-							href="addLocationForm">장소추가</a></li>
+							href="addLocationForm">Add New K-Map</a></li>
 					</c:when>
-				</c:choose>
-
+				</c:choose> --%>
 				<c:choose>
 					<c:when test="${not empty user.userid}">
 						<li class="nav-item active"><a class="nav-link">Welcome ${user.uname}

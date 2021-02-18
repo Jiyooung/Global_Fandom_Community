@@ -42,6 +42,7 @@ table, th, tr, td, h1 {
 	filter: alpha(opacity = 50);
 }
 
+
 .aa .bb{
 	float: left;
 }
@@ -50,15 +51,14 @@ table, th, tr, td, h1 {
 	margin-left: 10px;
 }
 
+
 .my_comment_ul {
 	list-style: none;
 	padding-left: 0px;
 }
-
 .jb-table-row {
 	display: table-row;
 }
-
 .jb-table-cell {
 	min-width:100px;
 	max-width:230px;

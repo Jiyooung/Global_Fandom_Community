@@ -55,7 +55,6 @@ form {
 </head>
 <body>
 
-	<h1>main</h1>
 	<div class="container">
 
 		<div class="row">
@@ -73,8 +72,7 @@ form {
 			<c:when test="${user.userid eq 'admin'}">
 
 				<div class="row">
-					<div class="col-md-12" id="grid" style="border: 1px solid #ccc;">
-						<br>
+					<div class="col-md-12" id="grid" style="border: 1px solid #ccc;padding: 30px;">
 						<h1>Administrator page</h1>
 						<hr>
 						<table>
@@ -97,8 +95,7 @@ form {
 			<c:when test="${empty ucode}">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-12" id="grid" style="border: 1px solid #ccc;">
-							<br>
+						<div class="col-md-12" id="grid" style="border: 1px solid #ccc;padding: 30px;">
 							<h1>Songs we Recommend</h1>
 							<hr>
 							<table>
@@ -212,27 +209,22 @@ form {
 						</table>
 					</div>
 				</div>
-				<c:choose>
-					<c:when test="${not empty ucode}">
-						<%
-						int cnt = ((int) request.getAttribute("songCnt") + 3) / 4;
-						for (int i = 1; i <= cnt; i++) {
-						%>
-						<a href="songMain?ucode=${ucode}&page=<%=i%>"><%=i%></a>
-						<%
-						}
-						%>
-					</c:when>
-					<c:otherwise>
-						<%int cnt = ((int) request.getAttribute("songCnt") + 3) / 4;
-						for (int i = 1; i <= cnt; i++) {
-						%>
-						<a href="songMain?ucode=-1&page=<%=i%>"><%=i%></a>
-						<%
-						}
-						%>
-					</c:otherwise>
-				</c:choose>
+				
+				<c:set var="cnt" value="${songCnt}"/>
+				
+					<c:choose>
+						<c:when test="${not empty ucode}">
+							<c:forEach begin="1" end="${cnt}" varStatus="status">
+								<a href="songMain?ucode=${ucode}&page=${status.index}">${status.index}</a>
+							</c:forEach>
+						</c:when>
+						<c:otherwise>
+							<c:forEach begin="1" end="${cnt}" varStatus="status">
+								<a href="songMain?ucode=-1&page=${status.index}">${status.index}</a>
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
+				
 
 			</c:otherwise>
 		</c:choose>

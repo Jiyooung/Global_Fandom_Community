@@ -51,10 +51,14 @@ public class LocationController {
 		System.out.println(result);
 		
 		if (result == 1) {
-			System.out.println("??");
 			String msg = "A place has been added. It is added to the map after confirmation by the administrator.";
 			model.addAttribute("msg", msg);
-			return "location/map";
+			
+//			추가해야함
+			List<Location> locations = locationService.getLocationList();
+			model.addAttribute("locationList", locations);
+			
+			return "location/map"; 
 //			return "redirect:/map";
 		}
 		else
