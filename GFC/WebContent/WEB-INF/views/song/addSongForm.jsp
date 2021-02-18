@@ -6,11 +6,25 @@
 <meta charset="UTF-8">
 <%@ include file="/WEB-INF/views/common/header.jsp"%>
 
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 <title>add Song Form</title>
 </head>
 <body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+
+
 	<form action="addSong" method="post" style="margin-top:100px;">	<!--**** 임시로 css 추가한거 충돌나면 지우기 *****-->
 		<input type="hidden" name="page" value="1">
+
 		<table border="1px solid black">
 			<tr>
 				<td>제목 :</td>
@@ -61,6 +75,8 @@
 	</form>
 
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
-
+</div>
+    </div>
+</div>
 </body>
 </html>

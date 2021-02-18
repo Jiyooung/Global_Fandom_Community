@@ -151,7 +151,7 @@
 			(select rownum rn, f.*
 			from
 				(select s.scode,s.stitle,s.acode,s.swriter,a.aname,
-				s.slyricist,s.sdate,s.salbum,s.simage
+				s.slyricist,s.sdate,s.salbum,s.simage, s.sviews
 				from songs s
 				left join
 				artists a
