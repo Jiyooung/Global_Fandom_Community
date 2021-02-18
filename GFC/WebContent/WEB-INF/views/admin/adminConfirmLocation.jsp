@@ -32,7 +32,7 @@
 	bottom: 10px;
 }
 
-table, th, tr, td, h1 {
+table, th, tr, td, h1,div {
 	text-align: center;
 }
 
@@ -87,10 +87,10 @@ table, th, tr, td, h1 {
 				},
 				success:function(data){
 					if(data=1){
-						alert("등록했습니다");
+						alert("등록 성공");
 						location.replace("adminConfirmLocation");
 					}else{
-						alert("등록실패");
+						alert("등록 실패");
 					}
 				}
 			});
@@ -106,9 +106,9 @@ table, th, tr, td, h1 {
 <body>
 <div class="container">
     <div class="row">
-        <div class="col-sm-12">
-<br><h1>관리자의 장소컨펌 페이지</h1><hr>
-	<table border="1px solid black">
+        <div class="col-sm-12" 	id="grid" style="border: 1px solid #ccc;">
+<br><h1>관리자의 장소 컨펌 페이지</h1><hr>
+	<table>
 		<tr>
 			<td>장소코드</td>
 			<td>가수(코드)</td>
@@ -142,6 +142,7 @@ table, th, tr, td, h1 {
 			</tr>
 		</c:forEach>
 	</table>
+	<hr>
 	<input type="button" value="등록" class="but" onclick="confirmLoc();">
 	</div>
     </div>

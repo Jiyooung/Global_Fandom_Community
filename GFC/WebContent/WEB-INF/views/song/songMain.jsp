@@ -55,7 +55,6 @@ form {
 </head>
 <body>
 
-	<h1>main</h1>
 	<div class="container">
 
 		<div class="row">
@@ -73,8 +72,7 @@ form {
 			<c:when test="${user.userid eq 'admin'}">
 
 				<div class="row">
-					<div class="col-md-12" id="grid" style="border: 1px solid #ccc;">
-						<br>
+					<div class="col-md-12" id="grid" style="border: 1px solid #ccc;padding: 30px;">
 						<h1>Administrator page</h1>
 						<hr>
 						<table>
@@ -97,8 +95,7 @@ form {
 			<c:when test="${empty ucode}">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-12" id="grid" style="border: 1px solid #ccc;">
-							<br>
+						<div class="col-md-12" id="grid" style="border: 1px solid #ccc;padding: 30px;">
 							<h1>Songs we Recommend</h1>
 							<hr>
 							<table>
@@ -121,7 +118,7 @@ form {
 			<c:otherwise>
 				<div class="container">
 					<div class="row">
-						<div class="col-md-6" id="grid" style="border: 1px solid #ccc;">
+						<div class="col-md-6" id="grid" style="border: 1px solid #ccc;padding: 50px;">
 							<br>
 							<h1>Your Bias Songs</h1>
 							<hr>

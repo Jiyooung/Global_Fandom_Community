@@ -41,21 +41,17 @@ table, th, tr, td, h1 {
 	opacity: 1.4 !important;
 	filter: alpha(opacity = 50);
 }
-
 .fleft{
 	float: left;
 }
-
 .my_comment_ul {
 	list-style: none;
 	padding-left: 0px;
 	display: table;
 }
-
 .jb-table-row {
 	display: table-row;
 }
-
 .jb-table-cell {
 	display: table-cell;
 	padding: 0px 5px;
