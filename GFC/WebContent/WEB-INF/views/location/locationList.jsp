@@ -57,10 +57,11 @@ table, th, tr, td, h1 {
 			</tr>
 		</c:forEach>
 	</table>
-	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 
 	</div>
     </div>
+    <div id="fmargin"></div>
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 </div>
 </body>
 </html>

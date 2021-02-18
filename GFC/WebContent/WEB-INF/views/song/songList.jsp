@@ -50,8 +50,8 @@ table, th, tr, td, h1,div {
 
 <script type="text/javascript">
 $(function() {
-	<c:if test="${not empty msg}">
-    	alert("${msg}");
+	<c:if test="${not empty msgAdd}">
+    	alert("${msgAdd}");
 	</c:if>
 
 });
@@ -115,7 +115,7 @@ $(function() {
       
 	</div>
 
-
+	<div id="fmargin"></div>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 
 </body>

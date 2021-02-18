@@ -30,16 +30,13 @@ var $j351 = jQuery.noConflict();
 	$j351(function() {
 		
 		let scode1 = "${song.scode}";
-		let ucode1 = '<%=session.getAttribute("ucode")%>
-	';
-		console.log(ucode1);
 		getCommentList(scode1);
 		$j351('#clear').click(function() {
 			$j351("#Comment").val(""); // 작성한 댓글 지우기.
 		});
 		$j351("#addComment").click(function() {
 			let comment1 = $j351('#Comment').val();
-			if (ucode1 != "null") {
+			if ("${ucode}" != "") {
 				if (comment1.length > 0) {
 					addComment(scode1, ucode1, comment1);
 				} else
@@ -210,7 +207,7 @@ var $j351 = jQuery.noConflict();
 
 	</div>
 
-
+	<div id="fmargin"></div>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 </body>
 </html>

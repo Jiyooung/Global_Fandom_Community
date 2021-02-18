@@ -41,18 +41,27 @@ table, th, tr, td, h1 {
 	opacity: 1.4 !important;
 	filter: alpha(opacity = 50);
 }
-.fleft{
+
+
+.aa .bb{
 	float: left;
 }
+.aa .cc{
+	float: left;
+	margin-left: 10px;
+}
+
+
 .my_comment_ul {
 	list-style: none;
 	padding-left: 0px;
-	display: table;
 }
 .jb-table-row {
 	display: table-row;
 }
 .jb-table-cell {
+	min-width:100px;
+	max-width:230px;
 	display: table-cell;
 	padding: 0px 5px;
 }
@@ -84,7 +93,7 @@ table, th, tr, td, h1 {
 				<div
 					class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
 					<div class="col p-4 d-flex flex-column position-static">
-						<strong class="d-inline-block mb-2 text-primary">Worldwide</strong>
+						<strong class="d-inline-block mb-2">Worldwide</strong>
 						<h3 class="mb-0">Charts</h3>
 						<br>
 						<table>
@@ -107,21 +116,29 @@ table, th, tr, td, h1 {
 				<div class="row border">
 					<div style="margin: 20px 0px 15px 20px">
 						<!-- 이미지 -->
-						<strong class="d-inline-block mb-2 text-primary">Today's Song</strong>
 						<div>
-							<div class="fleft">
+						<strong class="d-inline-block mb-2">Today's Song</strong>
+						</div>
+						<div class="aa">
+							<div class="bb">
 								<img alt="" src="${recommendSong.simage}" width="200px">
 							</div>
-							<div class="fleft" style="margin-left: 20px;">
-								<h4 style="margin-bottom: 30px;">
-									<a href="/GFC/songDetail?scode=${recommendSong.scode}">${recommendSong.stitle}</a>
-								</h4>
+							<div class="cc">
 								<ul class="my_comment_ul">
-									<li class="jb-table-row"><span class="text-muted jb-table-cell">아티스트</span> <span class="jb-table-cell">${recommendSong.artist.aname}</span>
+									<li>
+										<h4 style="margin-bottom: 30px; max-width: 350px">
+											<a href="/GFC/songDetail?scode=${recommendSong.scode}">${recommendSong.stitle}</a>
+										</h4>
 									</li>
-									<li class="jb-table-row"><span class="text-muted jb-table-cell">앨범</span> <span class="jb-table-cell">${recommendSong.salbum}</span>
+									<li class="jb-table-row"><span class="text-muted jb-table-cell">ARTIST</span> <span class="jb-table-cell">${recommendSong.artist.aname}</span>
 									</li>
-									<li class="jb-table-row"><span class="text-muted jb-table-cell">발매일</span> <span class="jb-table-cell">${recommendSong.sdate}</span>
+									<li class="jb-table-row"><span class="text-muted jb-table-cell">ALBUM</span> <span class="jb-table-cell">${recommendSong.salbum}</span>
+									</li>
+									<li class="jb-table-row"><span class="text-muted jb-table-cell">WRITER</span> <span class="jb-table-cell">${recommendSong.swriter}</span>
+									</li>
+									<li class="jb-table-row"><span class="text-muted jb-table-cell">LYRICIST</span> <span class="jb-table-cell">${recommendSong.slyricist}</span>
+									</li>
+									<li class="jb-table-row"><span class="text-muted jb-table-cell">RELEASED</span> <span class="jb-table-cell">${recommendSong.sdate}</span>
 									</li>
 								</ul>
 							</div>
@@ -134,7 +151,7 @@ table, th, tr, td, h1 {
 
   </main>
 
-
+	<div id="fmargin"></div>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 </body>
 </html>
