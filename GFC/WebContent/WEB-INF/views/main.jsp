@@ -25,14 +25,17 @@
 	filter: alpha(opacity = 50);
 }
 
-.fleft{
+.aa .bb{
 	float: left;
+}
+.aa .cc{
+	float: left;
+	margin-left: 10px;
 }
 
 .my_comment_ul {
 	list-style: none;
 	padding-left: 0px;
-	display: table;
 }
 
 .jb-table-row {
@@ -40,6 +43,8 @@
 }
 
 .jb-table-cell {
+	min-width:100px;
+	max-width:230px;
 	display: table-cell;
 	padding: 0px 5px;
 }
@@ -71,7 +76,7 @@
 				<div
 					class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
 					<div class="col p-4 d-flex flex-column position-static">
-						<strong class="d-inline-block mb-2 text-primary">월드와이드케이팝</strong>
+						<strong class="d-inline-block mb-2">월드와이드케이팝</strong>
 						<h3 class="mb-0">☆인기차트★</h3>
 						<div class="mb-1 text-muted">두구두구두구</div>
 						<table>
@@ -93,16 +98,20 @@
 				<div class="row border">
 					<div style="margin: 20px 0px 15px 20px">
 						<!-- 이미지 -->
-						<p class="mb-2 text-primary">오늘의 추천곡</p>
 						<div>
-							<div class="fleft">
+						<strong class="mb-2">오늘의 추천곡</strong>
+						</div>
+						<div class="aa">
+							<div class="bb">
 								<img alt="" src="${recommendSong.simage}" width="200px">
 							</div>
-							<div class="fleft" style="margin-left: 20px;">
-								<h4 style="margin-bottom: 30px;">
-									<a href="/GFC/songDetail?scode=${recommendSong.scode}">${recommendSong.stitle}</a>
-								</h4>
+							<div class="cc">
 								<ul class="my_comment_ul">
+									<li>
+										<h4 style="margin-bottom: 30px; max-width: 350px">
+											<a href="/GFC/songDetail?scode=${recommendSong.scode}">${recommendSong.stitle}</a>
+										</h4>
+									</li>
 									<li class="jb-table-row"><span class="text-muted jb-table-cell">아티스트</span> <span class="jb-table-cell">${recommendSong.artist.aname}</span>
 									</li>
 									<li class="jb-table-row"><span class="text-muted jb-table-cell">앨범</span> <span class="jb-table-cell">${recommendSong.salbum}</span>
