@@ -10,7 +10,7 @@
 <%
 Dev dev = new Dev();
 %>
-<script
+<script	
 	src="https://maps.google.com/maps/api/js?key=<%=dev.getMapAPIKey()%>"
 	async defer></script>
 <script
@@ -21,6 +21,7 @@ Dev dev = new Dev();
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="css/list.css">
 <style type="text/css">
 .searchButton,#addbutton,#resetbutton {
 	vertical-align:middle; 
@@ -80,15 +81,15 @@ table{
 	
 	function err() {
 		if (form.lname.value == "") {
-				alert("장소이름을 입력하세요.");
+				alert("Enter Place");
 	    	return false;
 		}
 		if (form.laddress.value == "") {
-			alert("주소를 입력하세요.");
+			alert("Enter Address");
     	return false;
 	}
 		if (form.ldesc.value == "") {
-			alert("해당 장소에 대한 설명을 입력하세요.");
+			alert("Enter Explanation");
     	return false;
 	}
 	return true;
@@ -97,41 +98,41 @@ table{
 <body>
 <div class="container">
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-12" id="grid" style="border: 1px solid #ccc;">
 
-	<br><h3>Add K-Tour Spot</h3><hr>
+	<br><h1 style="text-align: center;" >Add K-Tour Spot</h1><hr>
 	
 	<form name="form" action="addLocation" method="post"
 		onsubmit="return err()">
 		<table>
 			<tr>
-				<td>Nickname :</td>
+				<td>Nickname</td>
 				<td><input type="text" name="uname" value="${user.uname}"
 					required readonly><input type="hidden" name="ucode"
 					value="${user.ucode}" required readonly></td>
 			</tr>
 			<tr>
-				<td>Related Artist :</td>
+				<td>Related Artist </td>
 				<td><select name="acode">
 						<!-- db에서 가져오기 -->
-						<option value="1">아이유</option>
-						<option value="2">블랙핑크</option>
-						<option value="3">방탄소년단</option>
+						<option value="1">아이유 IU</option>
+						<option value="2">블랙핑크 BLACKPINK</option>
+						<option value="3">방탄소년단 BTS</option>
 				</select></td>
 			</tr>
 			<tr>
-				<td>Place Name :</td>
+				<td>Place Name </td>
 				<td><input type="text" name="lname"></td>
 			</tr>
 			<tr>
-				<td>Address :</td>
+				<td>Address </td>
 				<td><input type="text" id="laddress" name="laddress" placeholder="Click Search " required readonly /> 
 					<input type="hidden" id="llat" name="llat" /> <input type="hidden"id="llong" name="llong" />
 					<button class="searchButton" onclick="goPopup()">Search </button>
 					</td>
 			</tr>
 			<tr>
-				<td>Explanation :</td>
+				<td>Explanation </td>
 				<td><input type="text" name="ldesc"></td>
 			</tr>
 			<tr>
