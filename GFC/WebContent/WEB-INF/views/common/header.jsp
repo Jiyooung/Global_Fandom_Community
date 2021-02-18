@@ -22,6 +22,9 @@ body{
 #plutobrand{
 	font-size: 1.2em;
 }
+#fmargin{
+	height:100px;
+}
 </style>
 </head>
 <body>
@@ -93,7 +96,7 @@ body{
 	</nav>
 
 
-<div style="margin-bottom:100px;"></div>
+<div style="margin-bottom:50px;"></div>
 
 
 </body>
