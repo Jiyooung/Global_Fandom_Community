@@ -207,13 +207,15 @@ h3 {
 				<th>By</th>
 			</tr>
 			<c:forEach var="location" items="${locationList}">
-				<tr>
-					<td>${location.artist.aname}</td>
-					<td>${location.lname}</td>
-					<td>${location.laddress}</td>
-					<td>${location.ldesc}</td>
-					<td>${location.user.uname}</td>
-				</tr>
+					<tr>
+						<c:if test="${Integer.parseInt(location.lconfirm) eq 1}">
+							<td>${location.artist.aname}</td>
+							<td>${location.lname}</td>
+							<td>${location.laddress}</td>
+							<td>${location.ldesc}</td>
+							<td>${location.user.uname}</td>
+						</c:if>
+					</tr>
 			</c:forEach>
 		</table>
 		</div>
