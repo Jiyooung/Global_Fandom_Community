@@ -188,7 +188,7 @@ h3 {
 					<button id="filter">Apply</button>
 					<c:choose>
 						<c:when test="${not empty user.userid}">
-							<a id="addlocation" href="addLocationForm"> Register </a>
+							<a id="addlocation" href="addLocationForm"> Add New Spot </a>
 						</c:when>
 					</c:choose>
 					<div id="map"></div>
