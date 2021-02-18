@@ -12,26 +12,28 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <style type="text/css">
 #footer{
-	
 	 background:black;
 	 color: white;
  	 position:fixed;
- 	 bottom:0;
+  	 bottom:0;
 	 height:50px;
 	 text-align:center;  
 	 line-height:50px;
-	 margin-top:30px;
+	 margin-top:-100px;
 }
-#ig{
-	margin-bottom:50px;
+html, body{
+	height:100%;
 }
+
+
 </style>
 </head>
-<br><br><br>
+<body>
 <div id="footer" class="w-100">
 <div class="container">
 <span class="text muted">FOR ALL THE K-POP FANS</span>
 <span class="text muted">Copyright © 2021 HeroJoongJae. All Rights Reserved.</span>
 </div>
 </div>
+</body>
 </html>

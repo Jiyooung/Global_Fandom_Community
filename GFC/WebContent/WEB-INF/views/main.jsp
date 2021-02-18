@@ -16,6 +16,23 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <title>Pluto</title>
 <style type="text/css">
+tr.r:hover {
+	cursor: pointer;
+	background-color: #ece3f4;
+}
+table, th, tr, td, h1 {
+	text-align: center;
+}
+.page{
+	text-decoration: none;
+	color : #800040;
+}
+.page:hover{
+	text-decoration: overline;
+	color : #ff80c0;
+}
+</style>
+<style type="text/css">
 .hi {
 	background-image:
 		URL(http://img.vogue.co.kr/vogue/2020/06/style_5efae99e1084e.png);
@@ -25,14 +42,17 @@
 	filter: alpha(opacity = 50);
 }
 
-.fleft{
+.aa .bb{
 	float: left;
+}
+.aa .cc{
+	float: left;
+	margin-left: 10px;
 }
 
 .my_comment_ul {
 	list-style: none;
 	padding-left: 0px;
-	display: table;
 }
 
 .jb-table-row {
@@ -40,6 +60,8 @@
 }
 
 .jb-table-cell {
+	min-width:100px;
+	max-width:230px;
 	display: table-cell;
 	padding: 0px 5px;
 }
@@ -71,15 +93,16 @@
 				<div
 					class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
 					<div class="col p-4 d-flex flex-column position-static">
-						<strong class="d-inline-block mb-2 text-primary">월드와이드케이팝</strong>
-						<h3 class="mb-0">☆인기차트★</h3>
-						<div class="mb-1 text-muted">두구두구두구</div>
+						<strong class="d-inline-block mb-2">Worldwide</strong>
+						<h3 class="mb-0">Charts</h3>
+						<br>
 						<table>
 							<c:forEach var="song" items="${songList}" varStatus="status">
-								<tr>
-									<td>${status.count}</td>
+								<tr class="r"
+									onclick="location.href='/GFC/songDetail?scode=${song.scode}'">
+									<td><strong>${status.count}</strong></td>
 									<td><img alt="" src="${song.simage}" width="50px"></td>
-									<td><a href="/GFC/songDetail?scode=${song.scode}">${song.stitle}</a></td>
+									<td>${song.stitle}</td>
 									<td>${song.artist.aname}</td>
 									<td>${song.sviews}</td>
 								</tr>
@@ -93,25 +116,29 @@
 				<div class="row border">
 					<div style="margin: 20px 0px 15px 20px">
 						<!-- 이미지 -->
-						<p class="mb-2 text-primary">오늘의 추천곡</p>
 						<div>
-							<div class="fleft">
+						<strong class="d-inline-block mb-2">Today's Song</strong>
+						</div>
+						<div class="aa">
+							<div class="bb">
 								<img alt="" src="${recommendSong.simage}" width="200px">
 							</div>
-							<div class="fleft" style="margin-left: 20px;">
-								<h4 style="margin-bottom: 30px;">
-									<a href="/GFC/songDetail?scode=${recommendSong.scode}">${recommendSong.stitle}</a>
-								</h4>
+							<div class="cc">
 								<ul class="my_comment_ul">
-									<li class="jb-table-row"><span class="text-muted jb-table-cell">아티스트</span> <span class="jb-table-cell">${recommendSong.artist.aname}</span>
+									<li>
+										<h4 style="margin-bottom: 30px; max-width: 350px">
+											<a href="/GFC/songDetail?scode=${recommendSong.scode}">${recommendSong.stitle}</a>
+										</h4>
 									</li>
-									<li class="jb-table-row"><span class="text-muted jb-table-cell">앨범</span> <span class="jb-table-cell">${recommendSong.salbum}</span>
+									<li class="jb-table-row"><span class="text-muted jb-table-cell">ARTIST</span> <span class="jb-table-cell">${recommendSong.artist.aname}</span>
 									</li>
-									<li class="jb-table-row"><span class="text-muted jb-table-cell">작곡가</span> <span class="jb-table-cell">${recommendSong.swriter}</span>
+									<li class="jb-table-row"><span class="text-muted jb-table-cell">ALBUM</span> <span class="jb-table-cell">${recommendSong.salbum}</span>
 									</li>
-									<li class="jb-table-row"><span class="text-muted jb-table-cell">작사가</span> <span class="jb-table-cell">${recommendSong.slyricist}</span>
+									<li class="jb-table-row"><span class="text-muted jb-table-cell">WRITER</span> <span class="jb-table-cell">${recommendSong.swriter}</span>
 									</li>
-									<li class="jb-table-row"><span class="text-muted jb-table-cell">발매일</span> <span class="jb-table-cell">${recommendSong.sdate}</span>
+									<li class="jb-table-row"><span class="text-muted jb-table-cell">LYRICIST</span> <span class="jb-table-cell">${recommendSong.slyricist}</span>
+									</li>
+									<li class="jb-table-row"><span class="text-muted jb-table-cell">RELEASED</span> <span class="jb-table-cell">${recommendSong.sdate}</span>
 									</li>
 								</ul>
 							</div>
@@ -121,9 +148,10 @@
 			</div>
 		</div>
 
-	</main>
 
+  </main>
 
+	<div id="fmargin"></div>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 </body>
 </html>
