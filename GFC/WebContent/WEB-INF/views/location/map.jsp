@@ -88,8 +88,7 @@ h3 {
 	    		alert("${msg}");
 			</c:if>
 			
-			let user_acode = '<%=session.getAttribute("ucode")%>';
-			if (user_acode != "null") {
+			if ("${ucode}" != "") {
 				filterAcode(${user.acode});
 			}else {
 				filterAcode(0);
@@ -132,14 +131,14 @@ h3 {
 				position : center,
 				map : map,
 		    //icon: customicon, //마커 아이콘
-				label : '서울 시청',
-				desc : '서울의 중심'
+				label : 'City Hall',
+				desc : 'The center of Seoul'
 				})
 			google.maps.event.addListener(marker,'click',function(){
 				var contentString =
 					'<div id="content">'+
-					'<table><tr><td>장소이름 :</td><td><b>'+this.label+
-					'</b></td></tr><tr><td>설명 :</td><td><b>'+this.desc+
+					'<table><tr><td>Place :</td><td><b>'+this.label+
+					'</b></td></tr><tr><td>Content :</td><td><b>'+this.desc+
 					'</b></td></tr></table></div>';
       	infowindow.setContent(contentString);
       	infowindow.open(map, marker); //인포윈도우가 표시될 위치
@@ -157,11 +156,11 @@ h3 {
 					google.maps.event.addListener(marker,'click',function(){
 						var contentString =
 							'<div id="content">'+
-							'<table><tr><td>장소명 :</td><td><b>'+d.lname+
-							'</b></td></tr><tr><td>회원닉네임 :</td><td><b>'+d.user.uname+
-							'</b></td></tr><tr><td>가수 :</td><td><b>'+d.artist.aname+
-							'</b></td></tr><tr><td>주소 :</td><td><b>'+d.laddress+
-							'</b></td></tr><tr><td>설명 :</td><td><b>'+d.ldesc+
+							'<table><tr><td>Place :</td><td><b>'+d.lname+
+							'</b></td></tr><tr><td>By :</td><td><b>'+d.user.uname+
+							'</b></td></tr><tr><td>Related Artist :</td><td><b>'+d.artist.aname+
+							'</b></td></tr><tr><td>Address :</td><td><b>'+d.laddress+
+							'</b></td></tr><tr><td>Content :</td><td><b>'+d.ldesc+
 							'</b></td></tr></table></div>';
 	          infowindow.setContent(contentString);
 	          infowindow.open(map, marker);
