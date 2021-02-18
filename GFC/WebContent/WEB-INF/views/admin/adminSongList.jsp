@@ -7,6 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <%@ include file="/WEB-INF/views/common/header.jsp"%>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
 <style type="text/css">
 tr.r:hover {
@@ -24,9 +31,13 @@ table, th, tr, td, h1 {
 <title>Song List</title>
 </head>
 <body>
-	<h1>노래목록보기</h1>
 
-	<table border="1px solid black">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12" id="grid" style="border: 1px solid #ccc;">
+	<h1 style="padding:20px;">노래목록보기</h1>
+
+	<table>
 		<tr>
 			<td>노래코드</td>
 			<td>제목</td>
@@ -73,6 +84,8 @@ table, th, tr, td, h1 {
 		</c:choose>
 		<div id="fmargin"></div>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
-
+	</div>
+    </div>
+</div>
 </body>
 </html>

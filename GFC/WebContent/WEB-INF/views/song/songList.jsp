@@ -35,8 +35,6 @@ tr.r:hover {
 	cursor: pointer;
 	background-color: #ece3f4;
 }
-
-
 table, th, tr, td, h1,div {
 	text-align: center;
 }
@@ -48,8 +46,6 @@ table, th, tr, td, h1,div {
 	text-decoration: overline;
 	color : #ff80c0;
 }
-
-
 </style>
 
 <script type="text/javascript">
@@ -67,10 +63,11 @@ $(function() {
 <title>Song List</title>
 </head>
 <body>
-	<h1>Songs</h1>	
+	
 		<div class="container"id ="grid">
 		<div class="row" >
-			<div id="top" class="col-xs-12" >
+			<div class="col-md-12" id="grid" style="border: 1px solid #ccc; padding: 50px;" >
+			<h1>Songs</h1><hr>	
 			<table >
 				<tr>
 					<td>Album</td>

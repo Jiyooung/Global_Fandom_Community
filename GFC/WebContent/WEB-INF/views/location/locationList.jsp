@@ -33,7 +33,7 @@ table, th, tr, td, h1 {
 
 	<br><h3>K-Tour spot list</h3><hr>
 
-	<table border="1px solid black">
+	<table>
 		<tr>
 			<td>장소코드</td>
 			<td>가수(코드)</td>
