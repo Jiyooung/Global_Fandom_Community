@@ -95,6 +95,7 @@ table, th, tr, td, h1 {
 					<div class="col p-4 d-flex flex-column position-static">
 						<strong class="d-inline-block mb-2">Worldwide</strong>
 						<h3 class="mb-0">Charts</h3>
+						<br>
 						<table>
 							<c:forEach var="song" items="${songList}" varStatus="status">
 								<tr class="r"
@@ -129,11 +130,15 @@ table, th, tr, td, h1 {
 											<a href="/GFC/songDetail?scode=${recommendSong.scode}">${recommendSong.stitle}</a>
 										</h4>
 									</li>
-									<li class="jb-table-row"><span class="text-muted jb-table-cell">아티스트</span> <span class="jb-table-cell">${recommendSong.artist.aname}</span>
+									<li class="jb-table-row"><span class="text-muted jb-table-cell">ARTIST</span> <span class="jb-table-cell">${recommendSong.artist.aname}</span>
 									</li>
-									<li class="jb-table-row"><span class="text-muted jb-table-cell">앨범</span> <span class="jb-table-cell">${recommendSong.salbum}</span>
+									<li class="jb-table-row"><span class="text-muted jb-table-cell">ALBUM</span> <span class="jb-table-cell">${recommendSong.salbum}</span>
 									</li>
-									<li class="jb-table-row"><span class="text-muted jb-table-cell">발매일</span> <span class="jb-table-cell">${recommendSong.sdate}</span>
+									<li class="jb-table-row"><span class="text-muted jb-table-cell">WRITER</span> <span class="jb-table-cell">${recommendSong.swriter}</span>
+									</li>
+									<li class="jb-table-row"><span class="text-muted jb-table-cell">LYRICIST</span> <span class="jb-table-cell">${recommendSong.slyricist}</span>
+									</li>
+									<li class="jb-table-row"><span class="text-muted jb-table-cell">RELEASED</span> <span class="jb-table-cell">${recommendSong.sdate}</span>
 									</li>
 								</ul>
 							</div>
