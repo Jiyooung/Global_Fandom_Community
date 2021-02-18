@@ -51,7 +51,7 @@ public class LocationController {
 		System.out.println(result);
 		
 		if (result == 1) {
-			String msg = "장소추가 성공";
+			String msg = "A place has been added. It is added to the map after confirmation by the administrator.";
 			model.addAttribute("msg", msg);
 			
 //			추가해야함

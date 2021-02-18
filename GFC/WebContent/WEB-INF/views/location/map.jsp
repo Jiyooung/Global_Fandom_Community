@@ -188,7 +188,7 @@ h3 {
 					<button id="filter">Apply</button>
 					<c:choose>
 						<c:when test="${not empty user.userid}">
-							<a id="addlocation" href="addLocationForm"> Register </a>
+							<a id="addlocation" href="addLocationForm"> Add New Spot </a>
 						</c:when>
 					</c:choose>
 					<div id="map"></div>
@@ -207,13 +207,15 @@ h3 {
 				<th>By</th>
 			</tr>
 			<c:forEach var="location" items="${locationList}">
-				<tr>
-					<td>${location.artist.aname}</td>
-					<td>${location.lname}</td>
-					<td>${location.laddress}</td>
-					<td>${location.ldesc}</td>
-					<td>${location.user.uname}</td>
-				</tr>
+					<tr>
+						<c:if test="${Integer.parseInt(location.lconfirm) eq 1}">
+							<td>${location.artist.aname}</td>
+							<td>${location.lname}</td>
+							<td>${location.laddress}</td>
+							<td>${location.ldesc}</td>
+							<td>${location.user.uname}</td>
+						</c:if>
+					</tr>
 			</c:forEach>
 		</table>
 		</div>

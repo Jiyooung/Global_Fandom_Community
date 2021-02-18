@@ -118,7 +118,7 @@ form {
 			<c:otherwise>
 				<div class="container">
 					<div class="row">
-						<div class="col-md-6" id="grid" style="border: 1px solid #ccc;padding: 50px;">
+						<div class="col-md-6" id="grid" style="border: 1px solid #ccc;">
 							<br>
 							<h1>Your Bias Songs</h1>
 							<hr>
@@ -209,27 +209,22 @@ form {
 						</table>
 					</div>
 				</div>
-				<c:choose>
-					<c:when test="${not empty ucode}">
-						<%
-						int cnt = ((int) request.getAttribute("songCnt") + 3) / 4;
-						for (int i = 1; i <= cnt; i++) {
-						%>
-						<a href="songMain?ucode=${ucode}&page=<%=i%>"><%=i%></a>
-						<%
-						}
-						%>
-					</c:when>
-					<c:otherwise>
-						<%int cnt = ((int) request.getAttribute("songCnt") + 3) / 4;
-						for (int i = 1; i <= cnt; i++) {
-						%>
-						<a href="songMain?ucode=-1&page=<%=i%>"><%=i%></a>
-						<%
-						}
-						%>
-					</c:otherwise>
-				</c:choose>
+				
+				<c:set var="cnt" value="${songCnt}"/>
+				
+					<c:choose>
+						<c:when test="${not empty ucode}">
+							<c:forEach begin="1" end="${cnt}" varStatus="status">
+								<a href="songMain?ucode=${ucode}&page=${status.index}">${status.index}</a>
+							</c:forEach>
+						</c:when>
+						<c:otherwise>
+							<c:forEach begin="1" end="${cnt}" varStatus="status">
+								<a href="songMain?ucode=-1&page=${status.index}">${status.index}</a>
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
+				
 
 			</c:otherwise>
 		</c:choose>
