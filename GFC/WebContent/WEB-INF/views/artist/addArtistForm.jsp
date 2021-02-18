@@ -11,14 +11,15 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="css/list.css">
 <title>add Artist Form</title>
 </head>
 <body>
 <div class="container">
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-12"id="grid" style="border: 1px solid #ccc;">
 	<form action="addArtist" method="post">
-		<table border="1px solid black">
+		<table>
 			<tr>
 				<td>가수이름 :</td>
 				<td><input type="text" name="aname"></td>

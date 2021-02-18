@@ -12,6 +12,32 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style type="text/css">
+.but{
+	vertical-align:middle; 
+	background-color: #400080;
+	border: medium;
+	color: white;
+	padding: 5px 10px;
+	text-align: center;
+	text-decoration: none;
+	
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius:10px;
+	
+	bottom: 10px;
+}
+
+table, th, tr, td, h1 {
+	text-align: center;
+}
+
+
+</style>
+
+<link rel="stylesheet" href="css/list.css">
 
 <title>add Song Form</title>
 </head>
@@ -19,13 +45,13 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-12" id="grid" style="border: 1px solid #ccc; padding: 50px;" >
 
-
-	<form action="addSong" method="post" style="margin-top:100px;">	<!--**** 임시로 css 추가한거 충돌나면 지우기 *****-->
+<h1 style="text-align: center;" >New Song</h1><hr>
+	<form action="addSong" method="post" style="text-align: center;"  >	
 		<input type="hidden" name="page" value="1">
 
-		<table border="1px solid black">
+		<table>
 			<tr>
 				<td>제목 :</td>
 				<td><input type="text" name="stitle"></td>
@@ -35,9 +61,9 @@
 				<td>가수 :</td>
 				<td><select name="acode">
 						<!-- db에서 가져오기 -->
-						<option value="1">아이유</option>
-						<option value="2">블랙핑크</option>
-						<option value="3">방탄소년단</option>
+						<option value="1">아이유 IU</option>
+						<option value="2">블랙핑크 BLACKPINK</option>
+						<option value="3">방탄소년단 BTS</option>
 				</select></td>
 			</tr>
 			<tr>
@@ -71,7 +97,8 @@
 			</tr>
 			
 		</table>
-		<input type="submit" value="Submit">
+		<hr>
+		<input class="but" type="submit" value="Submit">
 	</form>
 
 </div>
