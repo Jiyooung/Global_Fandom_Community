@@ -51,10 +51,14 @@ public class LocationController {
 		System.out.println(result);
 		
 		if (result == 1) {
-			System.out.println("??");
 			String msg = "장소추가 성공";
 			model.addAttribute("msg", msg);
-			return "location/map";
+			
+//			추가해야함
+			List<Location> locations = locationService.getLocationList();
+			model.addAttribute("locationList", locations);
+			
+			return "location/map"; 
 //			return "redirect:/map";
 		}
 		else
