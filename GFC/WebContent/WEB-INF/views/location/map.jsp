@@ -24,7 +24,7 @@ Dev dev = new Dev();
 	src="https://maps.google.com/maps/api/js?key=<%=dev.getMapAPIKey()%>"
 	async defer></script>
 <title>Map</title>
-
+<link rel="stylesheet" href="css/list.css">
 <style type="text/css">
 .location_main {
 	text-align: center;
@@ -88,8 +88,7 @@ h3 {
 	    		alert("${msg}");
 			</c:if>
 			
-			let user_acode = '<%=session.getAttribute("ucode")%>';
-			if (user_acode != "null") {
+			if ("${ucode}" != "") {
 				filterAcode(${user.acode});
 			}else {
 				filterAcode(0);
@@ -132,14 +131,14 @@ h3 {
 				position : center,
 				map : map,
 		    //icon: customicon, //마커 아이콘
-				label : '서울 시청',
-				desc : '서울의 중심'
+				label : 'City Hall',
+				desc : 'The center of Seoul'
 				})
 			google.maps.event.addListener(marker,'click',function(){
 				var contentString =
 					'<div id="content">'+
-					'<table><tr><td>장소이름 :</td><td><b>'+this.label+
-					'</b></td></tr><tr><td>설명 :</td><td><b>'+this.desc+
+					'<table><tr><td>Place :</td><td><b>'+this.label+
+					'</b></td></tr><tr><td>Content :</td><td><b>'+this.desc+
 					'</b></td></tr></table></div>';
       	infowindow.setContent(contentString);
       	infowindow.open(map, marker); //인포윈도우가 표시될 위치
@@ -157,11 +156,11 @@ h3 {
 					google.maps.event.addListener(marker,'click',function(){
 						var contentString =
 							'<div id="content">'+
-							'<table><tr><td>장소명 :</td><td><b>'+d.lname+
-							'</b></td></tr><tr><td>회원닉네임 :</td><td><b>'+d.user.uname+
-							'</b></td></tr><tr><td>가수 :</td><td><b>'+d.artist.aname+
-							'</b></td></tr><tr><td>주소 :</td><td><b>'+d.laddress+
-							'</b></td></tr><tr><td>설명 :</td><td><b>'+d.ldesc+
+							'<table><tr><td>Place :</td><td><b>'+d.lname+
+							'</b></td></tr><tr><td>By :</td><td><b>'+d.user.uname+
+							'</b></td></tr><tr><td>Related Artist :</td><td><b>'+d.artist.aname+
+							'</b></td></tr><tr><td>Address :</td><td><b>'+d.laddress+
+							'</b></td></tr><tr><td>Content :</td><td><b>'+d.ldesc+
 							'</b></td></tr></table></div>';
 	          infowindow.setContent(contentString);
 	          infowindow.open(map, marker);
@@ -170,7 +169,7 @@ h3 {
 			}
 		}
 	</script>
-<link rel="stylesheet" href="css/list.css">
+
 
 </head>
 <body>
@@ -178,19 +177,18 @@ h3 {
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="location_main">
-				<br>
-					<h3>Map</h3><hr>
+					<h1>Map</h1><hr>
 					
 					<select id="acode" name="acode">
-						<option value="0">전체보기</option>
-						<option value="1">아이유</option>
-						<option value="2">블랙핑크</option>
-						<option value="3">방탄소년단</option>
+						<option value="0">All</option>
+						<option value="1">아이유 IU</option>
+						<option value="2">블랙핑크 BLACKPINK</option>
+						<option value="3">방탄소년단 BTS</option>
 					</select>
-					<button id="filter">적용</button>
+					<button id="filter">Apply</button>
 					<c:choose>
 						<c:when test="${not empty user.userid}">
-							<a id="addlocation" href="addLocationForm"> 장소 추가 </a>
+							<a id="addlocation" href="addLocationForm"> Register </a>
 						</c:when>
 					</c:choose>
 					<div id="map"></div>
@@ -198,15 +196,15 @@ h3 {
 			</div>
 		</div>
 		<div class="row">
-		<div class="col-sm-12">
+		<div class="col-sm-12" style="border: 1px solid #ccc;border-radius: 20px; margin-top: 20px;">
 		<br><br>
-		<table border="1px solid black">
+		<table >
 			<tr>
-				<td>가수</td>
-				<td>장소이름</td>
-				<td>주소</td>
-				<td>설명</td>
-				<td>회원코드</td>
+				<th>Related Artist</th>
+				<th>Place</th>
+				<th>Address</th>
+				<th>Content</th>
+				<th>By</th>
 			</tr>
 			<c:forEach var="location" items="${locationList}">
 				<tr>
