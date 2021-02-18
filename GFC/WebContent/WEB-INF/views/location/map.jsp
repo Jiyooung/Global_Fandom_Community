@@ -88,8 +88,7 @@ h3 {
 	    		alert("${msg}");
 			</c:if>
 			
-			let user_acode = '<%=session.getAttribute("ucode")%>';
-			if (user_acode != "null") {
+			if ("${ucode}" != "") {
 				filterAcode(${user.acode});
 			}else {
 				filterAcode(0);
