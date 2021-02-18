@@ -52,7 +52,7 @@ public class LocationController {
 		
 		if (result == 1) {
 			System.out.println("??");
-			String msg = "장소추가 성공";
+			String msg = "A place has been added. It is added to the map after confirmation by the administrator.";
 			model.addAttribute("msg", msg);
 			return "location/map";
 //			return "redirect:/map";
