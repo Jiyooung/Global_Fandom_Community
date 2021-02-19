@@ -38,7 +38,7 @@ var $j351 = jQuery.noConflict();
 			let comment1 = $j351('#Comment').val();
 			if ("${ucode}" != "") {
 				if (comment1.length > 0) {
-					addComment(scode1, ucode1, comment1);
+					addComment(scode1, ${ucode}, comment1);
 				} else
 					alert("Enter Comments");
 			} else {
