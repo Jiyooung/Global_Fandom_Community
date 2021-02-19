@@ -20,7 +20,7 @@ tr.r:hover {
 	cursor: pointer;
 	background-color: #ece3f4;
 }
-table, th, tr, td, h1 {
+table, th, tr, td{
 	text-align: center;
 }
 .page{
@@ -112,12 +112,12 @@ table, th, tr, td, h1 {
 
 				</div>
 			</div>
-			<div class="col-md-6">
-				<div class="row border">
-					<div style="margin: 20px 0px 15px 20px">
-						<!-- 이미지 -->
+			<div class="col-md-6";">
+				<div class="row border rounded">
+					<div style="margin: 20px 0px 15px 20px;">
+						
 						<div>
-						<strong class="d-inline-block mb-2">Today's Song</strong>
+						<h3 class="mb-0">Today's Song</h3>
 						</div>
 						<div class="aa">
 							<div class="bb">
