@@ -7,5 +7,5 @@ Global Fandom Community Project
 - [Juyeon Lee](https://github.com/ritajuyeonlee)
 - [Soyoung Kim](https://github.com/syzzzang)
 
-🌱 Start Date : 2021. 01. 07<br>
-🌱 Awards Date : 2021. 01. 19<br>
+🌱 Start Date : 2021. 02. 07<br>
+🌱 Awards Date : 2021. 02. 19<br>
